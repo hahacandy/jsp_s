@@ -73,7 +73,7 @@ a.list {
 						</font></td>
 						<td align="center" height="20"><font face="돋움" size="2"><%=rs.getString("regdate") %></font></td>
 						<td align="center" height="20"><font face="돋움" size="2">
-								3</font></td>
+								<%=rs.getString("readcnt") %></font></td></font></td>
 					</tr>
 					<%
 					}
