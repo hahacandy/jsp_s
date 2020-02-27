@@ -13,7 +13,7 @@ public class GuestDAOManager {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public static Connection getConnection() {
+	private Connection getConnection() {
 		String myDriver = "oracle.jdbc.driver.OracleDriver";
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -39,7 +39,7 @@ public class GuestDAOManager {
 		String[] option = null;
 		
 		try {
-			conn = GuestDAO.getConnection();
+			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
 			
 			
@@ -93,7 +93,7 @@ public class GuestDAOManager {
 		String[] option = null;
 		
 		try {
-			conn = GuestDAO.getConnection();
+			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
 			
 			if(options != null) {
