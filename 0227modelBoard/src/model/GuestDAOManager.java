@@ -12,7 +12,6 @@ public class GuestDAOManager {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	int row = 0;
 	
 	public static Connection getConnection() {
 		String myDriver = "oracle.jdbc.driver.OracleDriver";
@@ -131,7 +130,6 @@ public class GuestDAOManager {
 			pstmt.close();
 		if(conn != null)
 			conn.close();
-		row = 0;
 	}
 	
 	//db 쿼리에 필요한  리스트에 값 입력기
