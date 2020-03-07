@@ -51,6 +51,7 @@ public class GuestListServlet extends HttpServlet {
 		
 		String search = null;
 		String key = null;
+		String key2 = null;
 		
 		
 		
@@ -77,6 +78,7 @@ public class GuestListServlet extends HttpServlet {
 		}else {
 			search = request.getParameter("search");
 			key = request.getParameter("key");
+			key2 = URLEncoder.encode(request.getParameter("key"), "utf-8");
 
 			//검색 하여 나오는 게시글 갯수 측정
 			allPostCnt = dao.getPostCount(search, key);
@@ -144,6 +146,7 @@ public class GuestListServlet extends HttpServlet {
 		request.setAttribute("pageButton", pageButton);
 		request.setAttribute("search", search);
 		request.setAttribute("key", key);
+		request.setAttribute("key2", key2);
 
 		
 
