@@ -65,7 +65,7 @@
 				<td align="left" height="20">&nbsp; <font face="돋움" size="2"color="#000000"> 
 					<a class="list" href="GuestViewServlet?idx=${vo.idx }
 					<c:if test="${!empty currentPage}">&page=${currentPage}</c:if>
-					<c:if test="${!empty search && !empty key}">&search=${search }&key=${key }</c:if>">
+					<c:if test="${!empty search && !empty key2}">&search=${search }&key=${key2}</c:if>">
 					${vo.subject}
 					</a>
 				</td>
