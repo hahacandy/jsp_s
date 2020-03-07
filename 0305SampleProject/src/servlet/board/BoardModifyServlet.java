@@ -1,6 +1,7 @@
 package servlet.board;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class BoardModifyServlet extends HttpServlet {
 		}
 		if(request.getParameter("search") != null) {
 			request.setAttribute("search", request.getParameter("search"));
-			request.setAttribute("key", request.getParameter("key"));
+			request.setAttribute("key", URLEncoder.encode(request.getParameter("key"), "utf-8"));
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("Board/board_modify.jsp");

@@ -1,6 +1,7 @@
 package servlet.board;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,7 +48,7 @@ public class BoardDeleteServlet extends HttpServlet {
 			}
 			if(request.getParameter("search") != null) {
 				uri += "&search=" + request.getParameter("search");
-				uri += "&key=" + request.getParameter("key");
+				uri += "&key=" + URLEncoder.encode(request.getParameter("key"), "utf-8");
 			}
 
 			request.setAttribute("msg", "게시글 삭제 완료");

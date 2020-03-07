@@ -1,6 +1,7 @@
 package servlet.board;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -83,7 +84,7 @@ public class BoardViewServlet extends HttpServlet {
 		}
 		if(request.getParameter("search") != null) {
 			request.setAttribute("search", request.getParameter("search"));
-			request.setAttribute("key", request.getParameter("key"));
+			request.setAttribute("key", URLEncoder.encode(request.getParameter("key"), "utf-8"));
 		}
 		
 
