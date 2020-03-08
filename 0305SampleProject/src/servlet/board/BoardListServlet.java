@@ -118,8 +118,12 @@ public class BoardListServlet extends HttpServlet {
 		//페이지 이동 버튼 생성
 		pageButton.append("<div align='center' style='font-size: 20px'>");
 		//<< 버튼 (이전페이지)
-		if(MAX_PAGE_COUNT < startPage)
-			pageButton.append("<a href='BoardListServlet?page="+(startPage-1)+"'><<</a>");
+		if(MAX_PAGE_COUNT < startPage) {
+			if(currentMode == 0) 
+				pageButton.append("<a href='BoardListServlet?page="+(startPage-1)+"'><<</a>");
+			else 
+				pageButton.append("<a href='BoardListServlet?page="+(startPage-1)+"&search="+request.getParameter("search")+"&key="+request.getParameter("key")+"'><<</a>");
+		}
 		//페이지 숫자 버튼
 		for(int i=startPage; i<=endPage; i++) {
 			if(i!=currentPage) {
@@ -137,8 +141,13 @@ public class BoardListServlet extends HttpServlet {
 			}
 		}
 		//>> 버튼(다음페이지)
-		if(allPage > endPage)
-			pageButton.append("<a href='BoardListServlet?page="+(endPage+1)+"'>>></a>");
+		if(allPage > endPage) {
+			if(currentMode == 0) 
+				pageButton.append("<a href='BoardListServlet?page="+(endPage+1)+"'>>></a>");
+			else
+				pageButton.append("<a href='BoardListServlet?page="+(endPage+1)+"&search="+request.getParameter("search")+"&key="+request.getParameter("key")+"'>>></a>");
+		}
+
 
 		//값 전달
 		request.setAttribute("allPostCnt", allPostCnt);
