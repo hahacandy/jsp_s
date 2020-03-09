@@ -27,6 +27,25 @@ public class SQLManager {
 		return conn;
 	}
 	
+	//톰캣없이 자바에서 db
+	public Connection getConnection() {
+		String myDriver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user= "jsl40";
+		String password = "1234";
+		
+		Connection conn = null;
+		
+		try {
+			Class.forName(myDriver);
+			conn = DriverManager.getConnection(url, user, password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return conn;
+	}
+	
 	// 카운트 세는 쿼리
 	protected int cntQuery(String query, List<Object> options) {
 		int cnt = -1;
