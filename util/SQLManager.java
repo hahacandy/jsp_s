@@ -12,7 +12,14 @@ public class SQLManager {
 	protected PreparedStatement pstmt = null;
 	protected ResultSet rs = null;
 	
-
+	/* server.xml 디비 풀 설정
+	<Resource name="jdbc/myoracle" auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="oracle.jdbc.OracleDriver"
+	url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="jsl40"
+	password="1234" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
+	*/
+	
 	//톰캣 server.xml 디비 풀 설정하고 디비 커넥션 가져오는 경우 
 	protected Connection getConnection() {
 		Connection conn = null;
