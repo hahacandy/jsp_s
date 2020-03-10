@@ -1,5 +1,3 @@
-package util;
-
 public class AutoPageButton {
 
 	private String uri = null;
