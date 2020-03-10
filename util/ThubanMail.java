@@ -1,4 +1,4 @@
-//mail-1.4.7.
+//Mail-1.4.7.Jar is required
 
 import java.util.Properties;
 
