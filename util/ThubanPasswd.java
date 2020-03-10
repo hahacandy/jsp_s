@@ -16,17 +16,16 @@ public class ThubanPasswd {
 		return result;
 	}
 	
-	//랜덤 임시 비밀번호 생성 (startPassLen자 ~ endPassLen까지 길이 제한)
-	public static String createTempPasswd(int startPassLen, int endPassLen) {
+	//랜덤 임시 비밀번호 생성 (passLen자 만큼 생성)
+	public static String createTempPasswd(int passLen) {
 		char[] passwdChars = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
 				'!','@','#','$','%','^','&','*'};
 
 		Random random = new Random();
-		int ranPasswdLength = (random.nextInt(endPassLen-startPassLen)+1)+startPassLen;
 
 		String result = "";
-		for(int i=0; i<ranPasswdLength; i++) {
+		for(int i=0; i<passLen; i++) {
 		result += passwdChars[random.nextInt(passwdChars.length)];
 		}
 		
