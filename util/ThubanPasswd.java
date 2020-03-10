@@ -10,7 +10,7 @@ public class ThubanPasswd {
 	//kisa sha256을 이용하여 일반 문자를 sha256 해쉬코드로 변경후 베이스64 문자열로 변환
 	public static String changePasswdToSHA256(String passwd) {
 		String result = null;
-		SHA256 s = new SHA256(result.getBytes());
+		SHA256 s = new SHA256(passwd.getBytes());
 		BASE64Encoder Base64Encoder = new BASE64Encoder();
 		result = Base64Encoder.encode(s.GetHashCode());
 		return result;
