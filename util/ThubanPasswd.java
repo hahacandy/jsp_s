@@ -1,3 +1,5 @@
+//classes->KISA(key.dat, SHA256.class) is required
+
 import java.util.Random;
 
 import KISA.SHA256;
