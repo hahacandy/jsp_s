@@ -6,7 +6,7 @@ public class AutoPageButton {
 	private int startPage = 0;
 	private int endPage = 0;
 	
-	private int postCnt = 0;
+	private int currentPostCnt = 0;
 	
 	private int MAX_POST_COUNT = 10; 
 	private int MAX_PAGE_COUNT = 10; 
@@ -35,7 +35,7 @@ public class AutoPageButton {
 		this.endPage = ((currentPage-1)/MAX_PAGE_COUNT) == (allPage/MAX_PAGE_COUNT) ? allPage : (startPage-1)+MAX_PAGE_COUNT;
 		
 		//현재 페이지에 맞는 게시글 번호 측정
-		this.postCnt = allPostCnt-((currentPage-1)*MAX_POST_COUNT);
+		this.currentPostCnt = allPostCnt-((currentPage-1)*MAX_POST_COUNT);
 	}
 	
 	
@@ -79,8 +79,8 @@ public class AutoPageButton {
 	}
 
 
-	public int getPostCnt() {
-		return postCnt;
+	public int getCurrentPostCnt() {
+		return currentPostCnt;
 	}
 
 
