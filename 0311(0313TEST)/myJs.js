@@ -44,9 +44,9 @@ function send() {
 	alert("도서 대출 정보가 등록되었습니다.");
 	location.href="my.html";
 }
-
-
+	
 function resetForm() {
 	alert("입력된 모든항목을 삭제합니다.");
 	frm.reset();
 }
+
