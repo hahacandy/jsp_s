@@ -47,10 +47,10 @@ public class DBCPInit extends HttpServlet {
 			poolableConnFactory.setValidationQuery("select 1");
 
 			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);//��ȿ Ŀ�ؼ� �˻� �ֱ�(�и���)
-			poolConfig.setTestWhileIdle(true);//Ŀ�ؼ��� ��ȿ���� �˻�
-			poolConfig.setMinIdle(4);//Ǯ�� ������ �ּ� Ŀ�ؼ� ��
-			poolConfig.setMaxTotal(50);//Ǯ�� ������ Ŀ�ؼ� �ִ� ����
+			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);//유효 커넥션 검사주기 1초*60*5 = 5분
+			poolConfig.setTestWhileIdle(true);//커넥션이 유효한지 검사
+			poolConfig.setMinIdle(4);//풀이 유지할 커넥션 수
+			poolConfig.setMaxTotal(50);//풀이 관리할 커넥션 최대 수
 
 			GenericObjectPool<PoolableConnection> connectionPool = 
 					new GenericObjectPool<>(poolableConnFactory, poolConfig);
