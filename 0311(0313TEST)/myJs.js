@@ -49,3 +49,4 @@ function send() {
 		alert("입력된 모든항목을 삭제합니다.");
 		frm.reset();
 	}
+}
