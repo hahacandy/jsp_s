@@ -45,6 +45,7 @@ function send() {
 	location.href="my.html";
 }
 
+
 function resetForm() {
 	alert("입력된 모든항목을 삭제합니다.");
 	frm.reset();
