@@ -7,45 +7,19 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class SQLManager {
+public class ThubanSQLManager {
 	protected Connection conn = null;
 	protected PreparedStatement pstmt = null;
 	protected ResultSet rs = null;
 	
-	/* server.xml 디비 풀 설정
-	<Resource name="jdbc/myoracle" auth="Container"
-	type="javax.sql.DataSource"
-	driverClassName="oracle.jdbc.OracleDriver"
-	url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="jsl40"
-	password="1234" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
-	*/
-	
-	//톰캣 server.xml 디비 풀 설정하고 디비 커넥션 가져오는 경우 
-	protected Connection getConnection() {
-		Connection conn = null;
-		try {
-			Context initContext = new InitialContext();
-			Context env = (Context)initContext.lookup("java:/comp/env");
-			DataSource ds = (DataSource)env.lookup("jdbc/myoracle");
-			conn = ds.getConnection();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return conn;
-	}
-	
-	//톰캣없이 자바에서 db
+
+	//DBCP POOL 을 사용한 DB접속
 	public Connection getConnection() {
-		String myDriver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user= "jsl40";
-		String password = "1234";
-		
+
 		Connection conn = null;
 		
 		try {
-			Class.forName(myDriver);
-			conn = DriverManager.getConnection(url, user, password);
+			conn = DBConn.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

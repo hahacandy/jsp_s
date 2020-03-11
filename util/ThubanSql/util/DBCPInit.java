@@ -35,8 +35,8 @@ public class DBCPInit extends HttpServlet {
 
 	private void initConnectionPool() {
 		try {
-			String jdbcUrl = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
-			String username = "jsldb";
+			String jdbcUrl = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+			String username = "jsl40";
 			String pw = "1234";
 
 			ConnectionFactory connFactory = 
@@ -47,10 +47,10 @@ public class DBCPInit extends HttpServlet {
 			poolableConnFactory.setValidationQuery("select 1");
 
 			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);//À¯È¿ Ä¿³Ø¼Ç °Ë»ç ÁÖ±â(¹Ð¸®ÃÊ)
-			poolConfig.setTestWhileIdle(true);//Ä¿³Ø¼ÇÀÌ À¯È¿ÇÑÁö °Ë»ç
-			poolConfig.setMinIdle(4);//Ç®ÀÌ À¯ÁöÇÒ ÃÖ¼Ò Ä¿³Ø¼Ç ¼ö
-			poolConfig.setMaxTotal(50);//Ç®ÀÌ °ü¸®ÇÒ Ä¿³Ø¼Ç ÃÖ´ë °¹¼ö
+			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);//ï¿½ï¿½È¿ Ä¿ï¿½Ø¼ï¿½ ï¿½Ë»ï¿½ ï¿½Ö±ï¿½(ï¿½Ð¸ï¿½ï¿½ï¿½)
+			poolConfig.setTestWhileIdle(true);//Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+			poolConfig.setMinIdle(4);//Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½
+			poolConfig.setMaxTotal(50);//Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Ø¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 			GenericObjectPool<PoolableConnection> connectionPool = 
 					new GenericObjectPool<>(poolableConnFactory, poolConfig);
