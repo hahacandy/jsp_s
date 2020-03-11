@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+*{
+	margin:0;
+	padding:0;
+ }
+
+ a {
+	 text-decoration: none;
+	 color: #47C83E;
+ }
+
+header h1 {
+	text-align: center;
+	color:#000000;
+	background-color: #BDBDBD;
+	padding: 16px;
+}
+
+nav {
+	background-color: #D4F4FA;
+	padding: 16px 0px;
+}
+
+nav ul, li{
+	float: left;
+	list-style: none;
+	text-align:center;
+	padding: 0 20px;
+}
+
+section {
+	padding: 20px;
+	background-color: #FAED7D;
+
+}
+section h1 {
+	text-align: center;
+}
+
+section table td{
+	 border: 1px solid #BDBDBD;
+}
+
+
+
+footer {
+	text-align: center;
+	padding: 10px;
+	background-color: #D1B2FF;
+}
