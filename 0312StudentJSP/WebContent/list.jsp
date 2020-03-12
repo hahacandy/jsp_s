@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" type="text/css" href="./css/my.css"/>
+<script type="text/javascript" src="./js/list.js"></script>
+
 
 <script type="text/javascript">
 
