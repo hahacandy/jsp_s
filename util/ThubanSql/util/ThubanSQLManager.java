@@ -107,12 +107,17 @@ public class ThubanSQLManager {
 	}
 
 	protected void closeDB() throws Exception {
-		if (rs != null)
-			rs.close();
-		if (pstmt != null)
-			pstmt.close();
-		if (conn != null)
-			conn.close();
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	// db 쿼리에 필요한 리스트에 값 입력기
