@@ -1,0 +1,52 @@
+	*{
+		margin:0;
+		padding:0;
+	}
+	
+	header h1 {
+		padding: 20px;
+		text-align: center;
+		background-color: #47C83E;
+	}
+	
+	header nav{
+		padding: 20px;
+		background-color: #86E57F;
+	}
+	
+	header nav ul li {
+		list-style: none;
+		float: left;
+		padding: 0 20px;
+		
+	}
+	
+	section {
+		background-color: #ABF200;
+		padding: 20px;
+	
+	}
+	
+	section h1{
+		text-align: center;
+	}
+	
+	section table{
+		margin: 0px auto;
+	}
+	
+	section table tr th,td{
+		border: 1px solid #2F9D27;
+		padding: 0 10px;
+		text-align: center;
+	}
+	
+	.table tr td{
+		text-align:left;
+	}
+	
+	footer {
+		background-color: #E4F7BA;
+		text-align: center;
+		padding: 20px;
+	}
