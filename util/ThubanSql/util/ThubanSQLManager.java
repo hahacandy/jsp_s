@@ -106,7 +106,7 @@ public class ThubanSQLManager {
 		return row;
 	}
 
-	protected void closeDB() throws Exception {
+	protected void closeDB(){
 		try {
 			if (rs != null)
 				rs.close();
