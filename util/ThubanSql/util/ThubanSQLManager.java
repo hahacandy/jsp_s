@@ -135,4 +135,60 @@ public class ThubanSQLManager {
 		return infos;
 	}
 	
+	//셀렉트 쿼리
+	/*
+	protected List<GuestVO> selectQuery(String query, List<String> options) {
+		List<GuestVO> guestVOs = new ArrayList<GuestVO>();
+		String[] option = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			
+			
+			if(options != null) {
+				for(int i=1; i<=options.size(); i++) {
+					option = options.get(i-1).split(",");
+					if(option[0].equalsIgnoreCase("str"))
+						pstmt.setString(i, option[1]);
+					else if(option[0].equalsIgnoreCase("int"))
+						pstmt.setInt(i, Integer.valueOf(option[1]));
+					else 
+						System.out.println("쿼리 셀렉트 오류:" + i + " 번째 옵션");
+				}
+			}
+			
+
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				GuestVO guestVO = new GuestVO();
+				try {
+					guestVO.setIdx(rs.getInt("idx"));
+					guestVO.setName(rs.getString("name"));
+					guestVO.setEmail(rs.getString("email"));
+					guestVO.setRegdate(rs.getString("regdate"));
+					guestVO.setSubject(rs.getString("subject"));
+					guestVO.setContents(rs.getString("contents"));
+					guestVO.setReadcnt(rs.getInt("readcnt"));
+					guestVO.setIp(rs.getString("ip"));
+
+				}catch (Exception e) {}
+
+				guestVOs.add(guestVO);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				closeDB();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return guestVOs;
+	}
+	*/
+
 }
