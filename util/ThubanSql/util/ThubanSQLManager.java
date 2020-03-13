@@ -137,24 +137,28 @@ public class ThubanSQLManager {
 	
 	//셀렉트 쿼리
 	/*
-	protected List<GuestVO> selectQuery(String query, List<String> options) {
-		List<GuestVO> guestVOs = new ArrayList<GuestVO>();
+	protected List<ProductVO> selectQuery(String query, List<Object> options) {
+		List<ProductVO> list = new ArrayList<ProductVO>();
+		ProductVO vo = new ProductVO();
 		String[] option = null;
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
 			
-			
-			if(options != null) {
-				for(int i=1; i<=options.size(); i++) {
-					option = options.get(i-1).split(",");
-					if(option[0].equalsIgnoreCase("str"))
+			if (options != null) {
+				List<String> options2 = inputListInfos(options);
+				for (int i = 1; i <= options2.size(); i++) {
+					option = options2.get(i - 1).split(",");
+					if (option[0].equalsIgnoreCase("str")) {
+//						System.out.println(option[1]);
 						pstmt.setString(i, option[1]);
-					else if(option[0].equalsIgnoreCase("int"))
+					}
+
+					else if (option[0].equalsIgnoreCase("int"))
 						pstmt.setInt(i, Integer.valueOf(option[1]));
-					else 
-						System.out.println("쿼리 셀렉트 오류:" + i + " 번째 옵션");
+					else
+						System.out.println("셀렉트 쿼리 오류:" + i + " 번째 옵션");
 				}
 			}
 			
@@ -162,20 +166,17 @@ public class ThubanSQLManager {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				GuestVO guestVO = new GuestVO();
-				try {
-					guestVO.setIdx(rs.getInt("idx"));
-					guestVO.setName(rs.getString("name"));
-					guestVO.setEmail(rs.getString("email"));
-					guestVO.setRegdate(rs.getString("regdate"));
-					guestVO.setSubject(rs.getString("subject"));
-					guestVO.setContents(rs.getString("contents"));
-					guestVO.setReadcnt(rs.getInt("readcnt"));
-					guestVO.setIp(rs.getString("ip"));
+				vo = new ProductVO();
+				
+				vo.setCode(rs.getString("code"));
+				vo.setPname(rs.getString("pname"));
+				vo.setCost(Integer.valueOf(rs.getString("cost")));
+				vo.setPnum(Integer.valueOf(rs.getString("pnum")));
+				vo.setJnum(Integer.valueOf(rs.getString("jnum")));
+				vo.setSale(Integer.valueOf(rs.getString("sale")));
+				vo.setGcode(rs.getString("gcode"));
 
-				}catch (Exception e) {}
-
-				guestVOs.add(guestVO);
+				list.add(vo);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -187,7 +188,7 @@ public class ThubanSQLManager {
 			}
 		}
 		
-		return guestVOs;
+		return list;
 	}
 	*/
 
