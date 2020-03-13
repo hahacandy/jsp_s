@@ -137,7 +137,7 @@ public class ThubanSQLManager {
 	
 	//셀렉트 쿼리
 	/*
-	protected List<ProductVO> selectQuery(String query, List<Object> options) {
+		protected List<ProductVO> selectQuery(String query, List<Object> options) {
 		List<ProductVO> list = new ArrayList<ProductVO>();
 		ProductVO vo = new ProductVO();
 		String[] option = null;
@@ -161,20 +161,19 @@ public class ThubanSQLManager {
 						System.out.println("셀렉트 쿼리 오류:" + i + " 번째 옵션");
 				}
 			}
-			
 
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				vo = new ProductVO();
 				
-				vo.setCode(rs.getString("code"));
-				vo.setPname(rs.getString("pname"));
+				vo.setCode(rs.getString("code").trim());
+				vo.setPname(rs.getString("pname").trim());
 				vo.setCost(Integer.valueOf(rs.getString("cost")));
 				vo.setPnum(Integer.valueOf(rs.getString("pnum")));
 				vo.setJnum(Integer.valueOf(rs.getString("jnum")));
 				vo.setSale(Integer.valueOf(rs.getString("sale")));
-				vo.setGcode(rs.getString("gcode"));
+				vo.setGcode(rs.getString("gcode").trim());
 
 				list.add(vo);
 			}
