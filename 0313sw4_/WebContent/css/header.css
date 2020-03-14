@@ -1,0 +1,23 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	}
+
+
+	header h1{
+		padding: 20px;
+		text-align: center;
+	}
+
+	header nav ul{
+	  display: table;
+	  margin-right: auto;
+	  margin-left: auto;
+	}
+
+	header nav li{
+		list-style: none;
+		float: left;
+		
+		padding: 0 20px;
+	}
