@@ -167,6 +167,32 @@ public class ThubanSQLManager {
 			while(rs.next()) {
 				vo = new ProductVO();
 				
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+					
+				} catch (Exception e) {}
+				try {
+				
 				vo.setCode(rs.getString("code").trim());
 				vo.setPname(rs.getString("pname").trim());
 				vo.setCost(Integer.valueOf(rs.getString("cost")));
