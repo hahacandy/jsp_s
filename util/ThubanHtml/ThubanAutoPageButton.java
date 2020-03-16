@@ -93,6 +93,10 @@ public class AutoPageButton {
 		return endPost;
 	}
 	
+	public int getAllPage() {
+		return allPage;
+	}
+	
 	
 
 }
