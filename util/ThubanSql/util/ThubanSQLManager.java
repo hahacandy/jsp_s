@@ -137,9 +137,9 @@ public class ThubanSQLManager {
 	
 	//셀렉트 쿼리
 	/*
-		protected List<ProductVO> selectQuery(String query, List<Object> options) {
-		List<ProductVO> list = new ArrayList<ProductVO>();
-		ProductVO vo = new ProductVO();
+	private List<GuestVO> selectQuery(String query, List<Object> options) {
+		List<GuestVO> list = new ArrayList<GuestVO>();
+		GuestVO vo = new GuestVO();
 		String[] option = null;
 		
 		try {
@@ -165,42 +165,27 @@ public class ThubanSQLManager {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				vo = new ProductVO();
+				vo = new GuestVO();
 				
 				try {
-					
+					vo.setIdx(rs.getInt("idx"));
 				} catch (Exception e) {}
 				try {
-					
+					vo.setName(rs.getString("name"));
 				} catch (Exception e) {}
 				try {
-					
+					vo.setSubject(rs.getString("subject"));
 				} catch (Exception e) {}
 				try {
-					
+					vo.setContents(rs.getString("contents"));
 				} catch (Exception e) {}
 				try {
-					
+					vo.setRegdate(rs.getString("regdate"));
 				} catch (Exception e) {}
 				try {
-					
+					vo.setReadcnt(rs.getInt("readcnt"));
 				} catch (Exception e) {}
-				try {
-					
-				} catch (Exception e) {}
-				try {
-					
-				} catch (Exception e) {}
-				try {
 				
-				vo.setCode(rs.getString("code").trim());
-				vo.setPname(rs.getString("pname").trim());
-				vo.setCost(Integer.valueOf(rs.getString("cost")));
-				vo.setPnum(Integer.valueOf(rs.getString("pnum")));
-				vo.setJnum(Integer.valueOf(rs.getString("jnum")));
-				vo.setSale(Integer.valueOf(rs.getString("sale")));
-				vo.setGcode(rs.getString("gcode").trim());
-
 				list.add(vo);
 			}
 		}catch (Exception e) {
