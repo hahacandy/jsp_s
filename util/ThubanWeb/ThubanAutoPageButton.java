@@ -57,7 +57,7 @@ public class AutoPageButton {
 				if(addTag == null) { //검색 사용하지 않았을 경우
 					pageButton.append("&nbsp;[<a href='"+uri+"?page="+i+"'>");
 				}else { //검색 사용했을 경우
-					pageButton.append("&nbsp;[<a href='"+uri+"?page="+i+"&search="+addTag+"'>");
+					pageButton.append("&nbsp;[<a href='"+uri+"?page="+i+addTag+"'>");
 				}
 				
 				pageButton.append(i);
@@ -72,7 +72,7 @@ public class AutoPageButton {
 			if(addTag == null) 
 				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"'>></a>");
 			else
-				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"&search="+addTag+"'>></a>");
+				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+addTag+"'>></a>");
 		}
 		
 		return String.valueOf(pageButton);
