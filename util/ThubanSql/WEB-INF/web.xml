@@ -11,7 +11,7 @@
 	
 	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
-		<servlet-class>util.DBCPInit</servlet-class>
+		<servlet-class>util.DBCPInit</servlet-class> <!-- 주의 DBCPInit클래스의 위치에 따라 이 경로가 바껴야함  -->
 		<load-on-startup>1</load-on-startup>
 	
 	</servlet>
