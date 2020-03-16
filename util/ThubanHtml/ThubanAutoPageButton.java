@@ -44,12 +44,12 @@ public class AutoPageButton {
 
 		//페이지 이동 버튼 생성
 		pageButton.append("<div align='center' style='font-size: 20px'>");
-		//<< 버튼 (이전페이지)
+		//< 버튼 (이전페이지)
 		if(MAX_PAGE_COUNT < startPage) {
 			if(addTag == null) 
-				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+"'><<</a>");
+				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+"'><</a>");
 			else 
-				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+addTag+"'><<</a>");
+				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+addTag+"'><</a>");
 		}
 		//페이지 숫자 버튼
 		for(int i=startPage; i<=endPage; i++) {
@@ -67,12 +67,12 @@ public class AutoPageButton {
 				pageButton.append("&nbsp;[<b>"+i+"</b>]&nbsp;");
 			}
 		}
-		//>> 버튼(다음페이지)
+		//> 버튼(다음페이지)
 		if(allPage > endPage) {
 			if(addTag == null) 
-				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"'>>></a>");
+				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"'>></a>");
 			else
-				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"&search="+addTag+"'>>></a>");
+				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"&search="+addTag+"'>></a>");
 		}
 		
 		return String.valueOf(pageButton);
