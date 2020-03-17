@@ -3,7 +3,6 @@ package sample.model.board;
 import java.util.ArrayList;
 import java.util.List;
 
-import sample.model.guest.GuestVO;
 
 public class BoardDAO extends sample.util.ThubanSQLManager{
 	private BoardDAO() {}

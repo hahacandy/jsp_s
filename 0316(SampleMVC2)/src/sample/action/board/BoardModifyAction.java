@@ -1,7 +1,6 @@
 package sample.action.board;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,8 +19,6 @@ public class BoardModifyAction implements Action {
 		
 		int idx = Integer.valueOf(request.getParameter("idx"));
 		int page = Integer.valueOf(request.getParameter("page"));
-		String search = null;
-		String key = null;
 		
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		BoardVO vo = boardDAO.getOneBoardForModify(idx);

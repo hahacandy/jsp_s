@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,9 +28,16 @@ public class BoardWriteProAction implements Action{
 		infos.add(request.getRemoteAddr());
 		
 		boolean result = boardDAO.writeBoard(infos);
+		if(result) {
+			request.setAttribute("msg", "게시물 등록 성공");
+			request.setAttribute("uri", "/Board?command=board_list");
+		}else {
+			request.setAttribute("msg", "게시물 등록 실패");
+			request.setAttribute("uri", "/Board?command=board_write");
+		}
 		
-		
-		response.sendRedirect("/Board?command=board_list");
+		RequestDispatcher rd = request.getRequestDispatcher("/Alert/alert.jsp");
+		rd.forward(request, response);
 	
 	}
 }
