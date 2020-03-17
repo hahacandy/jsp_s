@@ -47,17 +47,17 @@ public class AutoPageButton {
 		//< 버튼 (이전페이지)
 		if(MAX_PAGE_COUNT < startPage) {
 			if(addTag == null) 
-				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+"'><</a>");
+				pageButton.append("<a href='"+uri+"page="+(startPage-1)+"'><</a>");
 			else 
-				pageButton.append("<a href='"+uri+"?page="+(startPage-1)+addTag+"'><</a>");
+				pageButton.append("<a href='"+uri+"page="+(startPage-1)+addTag+"'><</a>");
 		}
 		//페이지 숫자 버튼
 		for(int i=startPage; i<=endPage; i++) {
 			if(i!=currentPage) {
 				if(addTag == null) { //검색 사용하지 않았을 경우
-					pageButton.append("&nbsp;[<a href='"+uri+"?page="+i+"'>");
+					pageButton.append("&nbsp;[<a href='"+uri+"page="+i+"'>");
 				}else { //검색 사용했을 경우
-					pageButton.append("&nbsp;[<a href='"+uri+"?page="+i+addTag+"'>");
+					pageButton.append("&nbsp;[<a href='"+uri+"page="+i+addTag+"'>");
 				}
 				
 				pageButton.append(i);
@@ -70,9 +70,9 @@ public class AutoPageButton {
 		//> 버튼(다음페이지)
 		if(allPage > endPage) {
 			if(addTag == null) 
-				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+"'>></a>");
+				pageButton.append("<a href='"+uri+"page="+(endPage+1)+"'>></a>");
 			else
-				pageButton.append("<a href='"+uri+"?page="+(endPage+1)+addTag+"'>></a>");
+				pageButton.append("<a href='"+uri+"page="+(endPage+1)+addTag+"'>></a>");
 		}
 		
 		return String.valueOf(pageButton);
