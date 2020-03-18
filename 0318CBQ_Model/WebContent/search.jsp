@@ -144,14 +144,16 @@
 	
 	<section>
 		<h1>홈쇼핑 정보 검색</h1>
-		<form action="modify_pro.jsp" name="frm" method="post">
-		
+		<form action="modify_pro.jsp" name="frm" method="post" onsubmit="return false">
+
 			<table>
 			<%if(vo == null){ %>
 			
 				<tr>
 					<th>회원 번호</th>
-					<td><input type="text" name="bun"></td>
+					<td>
+						<input type="text" name="bun">
+					</td>
 				</tr>
 				
 		
