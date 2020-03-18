@@ -161,8 +161,8 @@ public class MemberDAO {
 		return custno;
 	}
 	
-	public List<String> getMember(int custno){
-		List<String> infos = null;
+	public MemberVO getMember(int custno){
+		MemberVO vo = null;
 		String query = "SELECT * FROM member_tbl WHERE custno = "+custno;
 		System.out.println(query);
 		try{
@@ -170,20 +170,21 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()){
-				infos = new ArrayList<String>();
-				infos.add(rs.getNString("custname"));
-				infos.add(rs.getNString("phone"));
-				infos.add(rs.getNString("address"));
-				infos.add(rs.getNString("joindate"));
-				infos.add(rs.getNString("grade"));
-				infos.add(rs.getNString("city"));
+				vo = new MemberVO();
+				vo.setCustname(rs.getNString("custname"));
+				vo.setPhone(rs.getNString("phone"));
+				vo.setAddress(rs.getNString("address"));
+				vo.setJoindate(rs.getNString("joindate"));
+				vo.setGrade(rs.getNString("grade"));
+				vo.setCity(rs.getNString("city"));
 			}
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally{
 			closeDB();
 		}
-		return infos;
+		
+		return vo;
 	}
 	
 	private void closeDB(){

@@ -1,15 +1,16 @@
+<%@page import="model.MemberVO"%>
 <%@page import="model.MemberDAO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
  <%
- 	List<String> infos = null;
+ 	MemberVO vo = null;
  	int custno = 0;
  	if(request.getParameter("custno") != null){
  		custno = Integer.valueOf(request.getParameter("custno"));
- 		infos = MemberDAO.getInstance().getMember(custno);
- 		if(infos == null){
+ 		vo = MemberDAO.getInstance().getMember(custno);
+ 		if(vo == null){
  		%>
  		<script type="text/javascript">
 			alert("검색 결과가 없습니다.");
@@ -146,7 +147,7 @@
 		<form action="modify_pro.jsp" name="frm" method="post">
 		
 			<table>
-			<%if(infos == null){ %>
+			<%if(vo == null){ %>
 			
 				<tr>
 					<th>회원 번호</th>
@@ -162,41 +163,41 @@
 				
 				<tr>
 					<th>회원 성명</th>
-					<td><input type="text" name="name" value="<%=infos.get(0)%>"></td>
+					<td><input type="text" name="name" value="<%=vo.getCustname()%>"></td>
 				</tr>
 				
 				<tr>
 					<th>회원 전화</th>
-					<td><input type="text" name="tel" value="<%=infos.get(1)%>"></td>
+					<td><input type="text" name="tel" value="<%=vo.getPhone()%>"></td>
 				</tr>
 				
 				<tr>
 					<th>회원 주소</th>
-					<td><input type="text" name="addr" value="<%=infos.get(2)%>"></td>
+					<td><input type="text" name="addr" value="<%=vo.getAddress()%>"></td>
 				</tr>
 				
 				<tr>
 					<th>가입 일자</th>
-					<td><input type="text" name="date" value="<%=infos.get(3).substring(0,4)%><%=infos.get(3).substring(5,7)%><%=infos.get(3).substring(8,10)%>"></td>
+					<td><input type="text" name="date" value="<%=vo.getJoindate().substring(0,4)%><%=vo.getJoindate().substring(5,7)%><%=vo.getJoindate().substring(8,10)%>"></td>
 				</tr>
 				
 				<tr>
 					<th>고객등급(A:VIP, B:일반, C:직원)</th>
-					<td><input type="text" name="grade" value="<%=infos.get(4)%>"></td>
+					<td><input type="text" name="grade" value="<%=vo.getGrade()%>"></td>
 				</tr>
 				
 				<tr>
 					<th>도시 코드</th>
-					<td><input type="text" name="code" value="<%=infos.get(5)%>"></td>
+					<td><input type="text" name="code" value="<%=vo.getCity()%>"></td>
 				</tr>
 			<%}%>
 				<tr>
 					<td colspan="2" align="center">
-				<%if(infos == null){%>
+				<%if(vo == null){%>
 						<a href="javascript:search()"><input type="button" value="조회하기"></a>
 						&nbsp;
 				<%}%>
-				<%if(infos != null){%>
+				<%if(vo != null){%>
 						<a href="search.jsp"><input type="button" value="다시 조회하기"></a>
 						&nbsp;
 						<a href="javascript:modify()"><input type="button" value="수정하기"></a>
