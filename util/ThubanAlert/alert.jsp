@@ -8,6 +8,12 @@
 	</script>
 </c:if>
 
+<c:if test="${!empty back}">
+	<script type="text/javascript">
+		history.back();
+	</script>
+</c:if>
+
 <c:if test="${!empty uri}">
 	<script type="text/javascript">
 		location.href = "${uri}";
