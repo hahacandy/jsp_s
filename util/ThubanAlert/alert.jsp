@@ -8,16 +8,19 @@
 	</script>
 </c:if>
 
-<c:if test="${!empty back}">
-	<script type="text/javascript">
-		history.back();
-	</script>
-</c:if>
 
 <c:if test="${!empty uri}">
-	<script type="text/javascript">
-		location.href = "${uri}";
-	</script>
+	<c:if test="${uri != 'back()' }">
+		<script type="text/javascript">
+			location.href = "${uri}";
+		</script>
+	</c:if>
+	
+	<c:if test="${uri == 'back()' }">
+		<script type="text/javascript">
+			history.back();
+		</script>
+	</c:if>
 </c:if>
 
 <c:if test="${!empty puri}">
