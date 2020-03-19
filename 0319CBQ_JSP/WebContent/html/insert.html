@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원매출 등록</title>
+
+<style type="text/css">
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	header {
+		padding: 20px;
+		background-color: #ABF200;
+	}
+	
+	header h1 {
+		text-align: center;
+		
+	}
+	
+	menu {
+		padding: 20px;
+		background: #E4F7BA;
+	}
+	
+	menu li {
+		float: left;
+		list-style: none;
+		padding: 0 30px;
+	}
+	
+	section{
+		padding:30px;
+		background-color: #CEF279;
+	}
+	section h1{
+		text-align: center;
+	}
+	section table{
+		margin: auto;
+	}
+	
+	footer{
+		padding: 20px;
+		text-align: center;
+		background-color: #BCE55C;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<header>
+		<h1>홈쇼핑 회원매출관리 Ver1.0</h1>
+	</header>
+	
+	<menu>
+			<li>회원매출 등록</li>
+			<li>회원매출 조회 및 수정</li>
+			<li>회원매출현황 조회</li>
+			<li>홈으로</li>
+			<br>
+	</menu>
+	
+	<section>
+		<h1>회원매출 등록</h1>
+		
+		<form action="" name="frm" method="post" onsubmit="return false">
+			<table>
+			
+				<tr>
+					<th>회원번호</th>
+					<td><input type="text" name="custno" value="">예)100001</td>
+				</tr>
+				
+				<tr>
+					<th>판매번호</th>
+					<td><input type="text" name="saleno" value="">예)2020001</td>
+				</tr>
+				
+				<tr>
+					<th>단가</th>
+					<td><input type="text" name="pcost" value=""></td>
+				</tr>
+				
+				<tr>
+					<th>수량</th>
+					<td><input type="text" name="amount" value=""></td>
+				</tr>
+				
+				<tr>
+					<th>가격</th>
+					<td><input type="text" name="price" value=""></td>
+				</tr>
+				
+				<tr>
+					<th>상품코드</th>
+					<td><input type="text" name="pcode" value=""></td>
+				</tr>
+				
+				<tr>
+					<th>판매일자</th>
+					<td><input type="text" name="sdate" value=""></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<a><input type="button" value="등록하기"></a>
+						<a href="javascript:frm.reset()" ><input type="button" value="다시 입력"></a>
+					</td>
+				</tr>
+			
+			</table>
+		</form>
+	</section>
+	
+	<footer>
+		HRDKOREA Copyright@2016 All rights reserve Human Resources Development Serivce of Korea
+	</footer>
+
+</body>
+</html>

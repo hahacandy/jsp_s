@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원별 매출 현황</title>
+
+<style type="text/css">
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	header {
+		padding: 20px;
+		background-color: #ABF200;
+	}
+	
+	header h1 {
+		text-align: center;
+		
+	}
+	
+	menu {
+		padding: 20px;
+		background: #E4F7BA;
+	}
+	
+	menu li {
+		float: left;
+		list-style: none;
+		padding: 0 30px;
+	}
+	
+	section{
+		padding:30px;
+		background-color: #CEF279;
+	}
+	section h1{
+		text-align: center;
+	}
+	section table{
+		margin: auto;
+	}
+	
+	section table th,td{
+		padding: 0 10px;
+		border: 1px solid #000000;
+		text-align: center;
+	}
+	
+	footer{
+		padding: 20px;
+		text-align: center;
+		background-color: #BCE55C;
+		
+	}
+
+</style>
+
+</head>
+<body>
+
+	<header>
+		<h1>홈쇼핑 회원매출관리 Ver1.0</h1>
+	</header>
+	
+	<menu>
+			<li>회원매출 등록</li>
+			<li>회원매출 조회 및 수정</li>
+			<li>회원매출현황 조회</li>
+			<li>홈으로</li>
+			<br>
+	</menu>
+	
+	<section>
+		<h1>회원별 매출 현황</h1>
+		
+		<form action="" name="frm" method="post" onsubmit="return false">
+			<table>
+			
+				<tr>
+					<th>회원번호</th>
+					<th>구매건수</th>
+					<th>구매액합계</th>
+
+				</tr>
+				
+				<tr>
+					<td>회원번호</td>
+					<td>판매번호</td>
+					<td>단가</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">등록된 정보가 없습니다.</td>
+				</tr>
+			
+			</table>
+		</form>
+	</section>
+	
+	<footer>
+		HRDKOREA Copyright@2016 All rights reserve Human Resources Development Serivce of Korea
+	</footer>
+
+</body>
+</html>
