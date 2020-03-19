@@ -123,13 +123,15 @@ public class ThubanSQLManager {
 	// db 쿼리에 필요한 리스트에 값 입력기
 	protected List<String> inputListInfos(List<Object> IInfos) {
 		List<String> infos = new ArrayList<String>();
+		int cnt = 0;
 		for (Object info : IInfos) {
+			cnt++;
 			if (info instanceof String) {
 				infos.add("str," + info);
 			} else if (info instanceof Integer) {
 				infos.add("int," + String.valueOf(info));
 			} else {
-				System.out.println("리스트 값 입력 오류!");
+				System.out.println(cnt + "번째 리스트 값 입력 오류: " + String.valueOf(info));
 			}
 		}
 		return infos;
