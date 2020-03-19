@@ -65,7 +65,7 @@
 <script type="text/javascript">
 
 	window.onload = function(){
-		frm.bun.value = ${nextCustNo};
+		frm.bun.value = "${nextCustNo}";
 	}
 
 	function insert() {
