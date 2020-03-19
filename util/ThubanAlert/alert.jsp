@@ -8,7 +8,6 @@
 	</script>
 </c:if>
 
-
 <c:if test="${!empty uri}">
 	<c:if test="${uri != 'back()' }">
 		<script type="text/javascript">
