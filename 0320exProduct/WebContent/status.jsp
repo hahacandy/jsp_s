@@ -83,8 +83,8 @@
 				
 				<c:forEach var="vo" items="${list}">
 					<tr>
-						<td><a href="Modify?code=${vo.code}">${vo.code}</a></td>
-						<td><a href="Modify?code=${vo.code}">${vo.pname}</a></td>
+						<td><a href="Modify?code=${vo.code}&modify=true">${vo.code}</a></td>
+						<td><a href="Modify?code=${vo.code}&modify=true">${vo.pname}</a></td>
 						<td>${vo.cost}</td>
 						<td>${vo.pnum}</td>
 						<td>${vo.jnum}</td>

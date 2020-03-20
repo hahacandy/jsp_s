@@ -1,14 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:if test="${empty vo}">
+
+<c:if test="${empty vo and !empty code and !empty modify}">
 	<script type="text/javascript">
 		alert("잘못된 접근입니다.");
 		location.href="Status";
 	</script>
 </c:if>
 
-    
+<c:if test="${empty vo and !empty code}">
+	<script type="text/javascript">
+		alert("검색결과 없음");
+		location.href="Modify";
+	</script>
+</c:if>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +70,24 @@
 
 	<script type="text/javascript">
 	
+		window.onload = function() {
+			
+			if("${code}" == ""){
+				frm.code.readOnly=false;
+				
+			}else if("${code}" != "" && "${modify}" == "")
+			{
+				frm.code.readOnly=false;
+				frm.pname.readOnly=true;
+				frm.cost.readOnly=true;
+				frm.pnum.readOnly=true;
+				frm.jnum.readOnly=true;
+				frm.sale.readOnly=true;
+				frm.gcode.readOnly=true;
+			}
+			
+		}
+	
 		function modify() {
 			
 			if(frm.code.value == ""){
@@ -111,6 +137,19 @@
 			
 		}
 		
+		
+		function search() {
+			
+			if(frm.code.value == ""){
+				alert("제품코드 입력!");
+				frm.code.focus();
+				return;
+			}
+			
+			location.href="Modify?code="+frm.code.value;
+			
+		}
+		
 		function deleteProduct() {
 			var result = confirm("삭제 하시겠습니까?");
 			
@@ -142,50 +181,60 @@
 			<table>
 				<tr>
 					<th>제품코드</th>
-					<td><input type="text" name="code" value="${vo.code}" readonly>수정불가</td>
+					<td><input type="text" name="code" value="${vo.code}" readonly></td>
 				</tr>
 				
-				<tr>
-					<th>제품이름</th>
-					<td><input type="text" name="pname" value="${vo.pname}" readonly>수정불가</td>
-				</tr>
+				<c:if test="${!empty code}">
 				
-				<tr>
-					<th>제품원가</th>
-					<td><input type="text" name="cost" value="${vo.cost}"></td>
-				</tr>
+					<tr>
+						<th>제품이름</th>
+						<td><input type="text" name="pname" value="${vo.pname}" readonly></td>
+					</tr>
+					
+					<tr>
+						<th>제품원가</th>
+						<td><input type="text" name="cost" value="${vo.cost}"></td>
+					</tr>
+					
+					<tr>
+						<th>목표수량</th>
+						<td><input type="text" name="pnum" value="${vo.pnum}"></td>
+					</tr>
+					
+					<tr>
+						<th>재고수량</th>
+						<td><input type="text" name="jnum" value="${vo.jnum}"></td>
+					</tr>
+					
+					<tr>
+						<th>출고가</th>
+						<td><input type="text" name="sale" value="${vo.sale}"></td>
+					</tr>
+					
+					<tr>
+						<th>그룹이름</th>
+						<td>
+							<select name="gcode">
+								<option value="">그룹선택
+								 <c:forEach var="groupVO" items="${list}">
+								 	<option value="${groupVO.gcode}" <c:if test="${groupVO.gcode == vo.gcode}">selected</c:if>>${groupVO.gname}
+								 </c:forEach>
+							</select>
+						</td>
+					</tr>
 				
-				<tr>
-					<th>목표수량</th>
-					<td><input type="text" name="pnum" value="${vo.pnum}"></td>
-				</tr>
-				
-				<tr>
-					<th>재고수량</th>
-					<td><input type="text" name="jnum" value="${vo.jnum}"></td>
-				</tr>
-				
-				<tr>
-					<th>출고가</th>
-					<td><input type="text" name="sale" value="${vo.sale}"></td>
-				</tr>
-				
-				<tr>
-					<th>그룹이름</th>
-					<td>
-						<select name="gcode">
-							<option value="">그룹선택
-							 <c:forEach var="groupVO" items="${list}">
-							 	<option value="${groupVO.gcode}" <c:if test="${groupVO.gcode == vo.gcode}">selected</c:if>>${groupVO.gname}
-							 </c:forEach>
-						</select>
-					</td>
-				</tr>
+				</c:if>
 				
 				<tr>
 					<td colspan="2" align="center">
-						<a href="javascript:modify()"><input type="button" value="수정하기"></a>
-						<a href="javascript:deleteProduct()"><input type="button" value="삭제하기"></a>
+						<c:if test="${empty modify}">
+							<a href="javascript:search()"><input type="button" value="조회하기"></a>
+						</c:if>
+						<c:if test="${!empty modify}">
+							<a href="javascript:modify()"><input type="button" value="수정하기"></a>
+							<a href="javascript:deleteProduct()"><input type="button" value="삭제하기"></a>
+						</c:if>
+						
 						<a href="Index"><input type="button" value="홈으로"></a>
 					</td>
 				</tr>	

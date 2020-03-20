@@ -14,7 +14,7 @@ public class ProductVO {
 		return code;
 	}
 	public void setCode(String code) {
-		this.code = code;
+		this.code = code.trim();
 	}
 	public String getPname() {
 		return pname;

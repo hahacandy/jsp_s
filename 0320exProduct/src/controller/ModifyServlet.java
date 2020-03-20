@@ -34,13 +34,22 @@ public class ModifyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String code = request.getParameter("code");
+		String code = null;
 		
-		ProductVO vo =  ProductDAO.getInstance().getOneProduct(code);
-		List<ProductVO> list = ProductDAO.getInstance().getAllGroup();
-		
-		request.setAttribute("vo", vo);
-		request.setAttribute("list", list);
+		if(request.getParameter("code") != null) {
+			code = request.getParameter("code");
+			ProductVO vo =  ProductDAO.getInstance().getOneProduct(code);
+			List<ProductVO> list = ProductDAO.getInstance().getAllGroup();
+			
+			if(request.getParameter("modify") != null) { //제품수정할때
+				request.setAttribute("modify", "true");
+			}
+			
+			request.setAttribute("vo", vo);
+			request.setAttribute("list", list);
+			request.setAttribute("code", code);
+			
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("modify.jsp");
 		rd.forward(request, response);
@@ -71,6 +80,7 @@ public class ModifyServlet extends HttpServlet {
 			infos.add(request.getParameter("gcode"));
 			infos.add(request.getParameter("code"));
 			infos.add(request.getParameter("pname"));
+			
 			
 			boolean result = ProductDAO.getInstance().modifyProduct(infos);
 			
