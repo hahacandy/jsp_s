@@ -173,12 +173,11 @@
 				<tr>
 					<th>그룹이름</th>
 					<td>
-						
 						<select name="gcode">
 							<option value="">그룹선택
-							<option value="A" <c:if test="${vo.gcode == 'A'}">selected</c:if>>컴퓨터
-							<option value="B" <c:if test="${vo.gcode == 'B'}">selected</c:if>>모바일
-							<option value="C" <c:if test="${vo.gcode == 'C'}">selected</c:if>>냉장 소모품
+							 <c:forEach var="groupVO" items="${list}">
+							 	<option value="${groupVO.gcode}" <c:if test="${groupVO.gcode == vo.gcode}">selected</c:if>>${groupVO.gname}
+							 </c:forEach>
 						</select>
 					</td>
 				</tr>

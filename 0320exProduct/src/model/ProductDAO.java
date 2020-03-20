@@ -15,6 +15,21 @@ public class ProductDAO extends DAOBase implements ProductDAOImpl{
 	 }
 	
 	@Override
+	public List<ProductVO> getAllGroup() {
+		String query= "SELECT * FROM groupcode ORDER BY gcode";
+		List<ProductVO> list = selectQuery(query, null);
+		return list;
+	}
+	 
+	@Override
+	public boolean insertGroupProduct(String gcode, String gname) {
+		int result = 0;
+		String query = "INSERT INTO groupcode VALUES('"+gcode+"', '"+gname+"')";
+		result = updateQuery(query, null);
+		return result>0;
+	}
+	 
+	@Override
 	public List<ProductVO> getGroupProduct() {
 		String query = "SELECT a.gcode, b.gname, a.jnum FROM (SELECT gcode, SUM(jnum) jnum FROM product GROUP BY gcode) a, groupcode b WHERE a.gcode=b.gcode";
 		List<ProductVO> list = selectQuery(query, null);

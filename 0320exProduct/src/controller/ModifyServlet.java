@@ -37,8 +37,10 @@ public class ModifyServlet extends HttpServlet {
 		String code = request.getParameter("code");
 		
 		ProductVO vo =  ProductDAO.getInstance().getOneProduct(code);
+		List<ProductVO> list = ProductDAO.getInstance().getAllGroup();
 		
 		request.setAttribute("vo", vo);
+		request.setAttribute("list", list);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("modify.jsp");
 		rd.forward(request, response);

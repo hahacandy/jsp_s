@@ -9,4 +9,6 @@ public interface ProductDAOImpl {
 	public boolean modifyProduct(List<Object> infos);
 	public boolean deleteProduct(String code, String pname);
 	public List<ProductVO> getGroupProduct();
+	public boolean insertGroupProduct(String gcode, String gname);
+	public List<ProductVO> getAllGroup();
 }

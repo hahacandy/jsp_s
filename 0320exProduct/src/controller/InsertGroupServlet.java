@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ProductDAO;
-import model.ProductVO;
 
 /**
  * Servlet implementation class InsertServlet
  */
-@WebServlet("/Insert")
-public class InsertServlet extends HttpServlet {
+@WebServlet("/InsertGroup")
+public class InsertGroupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertServlet() {
+    public InsertGroupServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,12 +30,7 @@ public class InsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<ProductVO> list = ProductDAO.getInstance().getAllGroup();
-		
-		request.setAttribute("list", list);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("insert.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("insertGroup.jsp");
 		rd.forward(request, response);
 	}
 
@@ -49,22 +41,16 @@ public class InsertServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		List<Object> infos = new ArrayList<Object>();
-		infos.add(request.getParameter("code"));
-		infos.add(request.getParameter("pname"));
-		infos.add(Integer.valueOf(request.getParameter("cost")));
-		infos.add(Integer.valueOf(request.getParameter("pnum")));
-		infos.add(Integer.valueOf(request.getParameter("jnum")));
-		infos.add(Integer.valueOf(request.getParameter("sale")));
-		infos.add(request.getParameter("gcode"));
+		String gcode = request.getParameter("gcode").toUpperCase();
+		String gname = request.getParameter("gname");
 		
-		boolean result = ProductDAO.getInstance().insertProduct(infos);
+		boolean result = ProductDAO.getInstance().insertGroupProduct(gcode, gname);
 		
 		if(result) {
-			request.setAttribute("msg", "제품 등록 성공");
-			request.setAttribute("uri", "Status");
+			request.setAttribute("msg", "그룹 등록 성공");
+			request.setAttribute("uri", "StatusGroup");
 		}else {
-			request.setAttribute("msg", "제품 등록 실패");
+			request.setAttribute("msg", "그룹 등록 실패");
 			request.setAttribute("uri", "back()");
 		}
 		
