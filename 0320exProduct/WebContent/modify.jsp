@@ -83,7 +83,7 @@
 				frm.pnum.readOnly=true;
 				frm.jnum.readOnly=true;
 				frm.sale.readOnly=true;
-				frm.gcode.readOnly=true;
+				frm.gcode.disabled=true;
 			}
 			
 		}
