@@ -4,10 +4,6 @@ import java.sql.*;
 import java.util.*;
 
 public class ThubanSQLManager {
-	protected Connection conn = null;
-	protected PreparedStatement pstmt = null;
-	protected ResultSet rs = null;
-	
 
 	//DBCP POOL 을 사용한 DB접속
 	public Connection getConnection() {
