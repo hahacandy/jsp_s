@@ -25,6 +25,10 @@ public class ThubanSQLManager {
 	
 	// 카운트 세는 쿼리
 	protected int cntQuery(String query, List<Object> options) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 		int cnt = -1;
 		String[] option = null;
 
@@ -57,7 +61,7 @@ public class ThubanSQLManager {
 			e.printStackTrace();
 		} finally {
 			try {
-				closeDB();
+				closeDB(rs, pstmt, conn);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -67,6 +71,10 @@ public class ThubanSQLManager {
 	
 	// 일반 쿼리
 	protected int updateQuery(String query, List<Object> options) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 		int row = 0;
 		String[] option = null;
 
@@ -94,7 +102,7 @@ public class ThubanSQLManager {
 			e.printStackTrace();
 		} finally {
 			try {
-				closeDB();
+				closeDB(rs, pstmt, conn);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -102,19 +110,6 @@ public class ThubanSQLManager {
 		return row;
 	}
 
-	protected void closeDB(){
-		try {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
 
 	// db 쿼리에 필요한 리스트에 값 입력기
 	protected List<String> inputListInfos(List<Object> IInfos) {
@@ -133,9 +128,29 @@ public class ThubanSQLManager {
 		return infos;
 	}
 	
+	
+	protected void closeDB(ResultSet rs, PreparedStatement pstmt, Connection conn) {
+		
+		try {
+			if(rs != null)
+				rs.close();
+			if(pstmt != null)
+				pstmt.close();
+			if(conn != null)
+				conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	//셀렉트 쿼리
 	/*
 	private List<GuestVO> selectQuery(String query, List<Object> options) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 		List<GuestVO> list = new ArrayList<GuestVO>();
 		GuestVO vo = new GuestVO();
 		String[] option = null;
@@ -190,7 +205,7 @@ public class ThubanSQLManager {
 			e.printStackTrace();
 		}finally {
 			try {
-				closeDB();
+				closeDB(rs, pstmt, conn);
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
