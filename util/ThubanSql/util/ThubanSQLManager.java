@@ -8,7 +8,7 @@ public class ThubanSQLManager {
 	//DBCP POOL 을 사용한 DB접속
 	public Connection getConnection() {
 
-		conn = null;
+		Connection conn = null;
 		
 		try {
 			conn = DBConn.getConnection();
