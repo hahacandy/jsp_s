@@ -2,6 +2,11 @@ WEB-INF 폴더 밑의 web.xml파일에
 
 <servlet-mapping>
 	<servlet-name>default</servlet-name>
+	<url-pattern>*.html</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>default</servlet-name>
 	<url-pattern>*.css</url-pattern>
 </servlet-mapping>
 
@@ -21,5 +26,4 @@ WEB-INF 폴더 밑의 web.xml파일에
 	
 위와 같이 필요한 확장자명을 적어준다
 
-이것은 불러오려는 css,js,이미지 등만 적어야 하며
-혹시 html, jsp등을 적어버리면 웹페이지를 실행하였을때 소스보기 마냥 되어버린다
+혹시 jsp를 적어버리면 웹페이지를 실행하였을때 소스보기 마냥 되어버린다
