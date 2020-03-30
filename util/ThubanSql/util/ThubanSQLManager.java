@@ -85,9 +85,9 @@ public class ThubanSQLManager {
 		for (Object info : IInfos) {
 			cnt++;
 			if (info instanceof String) {
-				infos.add("str$%#$%" + info);
+				infos.add("str,!#!," + info);
 			} else if (info instanceof Integer) {
-				infos.add("int$%#$%" + String.valueOf(info));
+				infos.add("int,!#!," + String.valueOf(info));
 			} else {
 				System.out.println(cnt + "번째 리스트 값 입력 오류: " + String.valueOf(info));
 			}
@@ -103,7 +103,7 @@ public class ThubanSQLManager {
 			
 			List<String> options2 = inputListInfos(options);
 			for (int i = 1; i <= options2.size(); i++) {
-				option = options2.get(i - 1).split("$%#$%");
+				option = options2.get(i - 1).split(",!#!,");
 				if (option[0].equalsIgnoreCase("str")) {
 //					System.out.println(option[1]);
 					pstmt.setString(i, option[1]);
