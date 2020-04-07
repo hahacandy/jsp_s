@@ -7,3 +7,4 @@ jsp 파일에다가
 
 포맷형
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:formatNumber value="숫자" pattern="#,###"/> 콤마찍기
