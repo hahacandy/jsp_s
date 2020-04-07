@@ -1,4 +1,4 @@
-package sample.util;
+package util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -37,4 +37,13 @@ public class ThubanCookie {
 			return true;
 		}
 	}
+	
+	//cookieName 쿠키이름, cookieSetValue 값을 넣으면 그대로 적용됨
+		public static void cookieSet(HttpServletRequest request, HttpServletResponse response, String cookieName, String cookieSetValue) {
+			
+			Cookie temp = new Cookie(cookieName, cookieSetValue);
+			temp.setMaxAge(60*60*24);
+			response.addCookie(temp);
+			
+		}
 }
