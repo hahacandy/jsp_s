@@ -33,6 +33,7 @@ public class ThubanSimtoList {
             e.printStackTrace();
         }
         
+        sub = new StringBuffer(sub.toString().replaceAll("'", "\\\\'"));
       
         Pattern pat = Pattern.compile("(<SYNC START=[0-9]+>|</BODY>)");
         Matcher match = pat.matcher(sub.toString().toUpperCase());
