@@ -14,7 +14,7 @@ public class ThubanSimtoList {
 
 	public static  List<String[]> get(String path) {
 		
-		StringBuffer sub = new StringBuffer();
+	StringBuffer sub = new StringBuffer();
         try{
             //입력 버퍼 생성
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "utf-8"));
@@ -41,8 +41,8 @@ public class ThubanSimtoList {
         int sub_start = 0;
         int sub_end = 0;
         
-        String sub_time = null;
-        String sub_text = null;
+        StringBuffer sub_time = null;
+        StringBuffer sub_text = null;
         
         List<String[]> list = new ArrayList<String[]>();
         
@@ -50,13 +50,13 @@ public class ThubanSimtoList {
         	
         	sub_end = match.start();
         	if(cnt > 0) {
-        		sub_text = sub.substring(sub_start, sub_end);
+        		sub_text = new StringBuffer(sub.substring(sub_start, sub_end));
         		
-        		String[] sub_info = {sub_time,sub_text};
+        		String[] sub_info = {sub_time.toString(),sub_text.toString()};
         		list.add(sub_info);
         	}
         	sub_start = match.end();
-        	sub_time = match.group().replaceAll("\\D", "");
+        	sub_time = new StringBuffer(match.group().replaceAll("\\D", ""));
         	cnt ++;
         }
         
