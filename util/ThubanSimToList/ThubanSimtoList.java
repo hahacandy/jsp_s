@@ -55,8 +55,13 @@ public class ThubanSimtoList {
         	if(cnt > 0) {
         		sub_text = new StringBuffer(sub.substring(sub_start, sub_end).trim());
         		
-        		String[] sub_info = {sub_time.toString(),sub_text.toString()};
+        		String[] sub_info = {sub_time.toString(),sub_text.toString(), "9999999999"};
         		list.add(sub_info);
+        		if(cnt>1) {
+        			String[] temp = list.get(cnt-2);
+        			temp[2] = sub_time.toString();
+         			list.set(cnt-2, temp);
+        		}
         	}
         	sub_start = match.end();
         	sub_time = new StringBuffer(match.group().replaceAll("\\D", ""));
