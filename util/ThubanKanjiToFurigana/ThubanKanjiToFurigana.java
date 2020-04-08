@@ -62,7 +62,7 @@ public class ThubanKanjiToFurigana {
 			e.printStackTrace();
 		}
 		
-		return result.toString();
+		return result.toString().trim();
 	}
 
 	private static String getTagValue(String tag, Element eElement) {
