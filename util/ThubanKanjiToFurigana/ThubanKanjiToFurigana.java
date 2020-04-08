@@ -15,7 +15,7 @@ public class ThubanKanjiToFurigana {
 		
 		String target_url = "https://jlp.yahooapis.jp/FuriganaService/V1/furigana";
 		String api_key= ""; //야후 재팬에서 받은 api키
-		String result = null;
+		StringBuffer result = new StringBuffer();
 		
 		try {
 			kanji = URLEncoder.encode(kanji, "utf-8");
@@ -42,7 +42,7 @@ public class ThubanKanjiToFurigana {
 				if(nNode.getNodeType() == Node.ELEMENT_NODE){
 									
 					Element eElement = (Element) nNode;
-					result = getTagValue("Furigana", eElement);
+					result.append(getTagValue("Furigana", eElement));
 					//System.out.println("######################");
 					//System.out.println("Surface  : " + getTagValue("Surface", eElement));
 					//System.out.println("Furigana  : " + getTagValue("Furigana", eElement));
@@ -54,7 +54,7 @@ public class ThubanKanjiToFurigana {
 			e.printStackTrace();
 		}
 		
-		return result;
+		return result.toString();
 	}
 
 	private static String getTagValue(String tag, Element eElement) {
