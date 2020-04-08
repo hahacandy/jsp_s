@@ -49,6 +49,8 @@ public class ThubanKanjiToFurigana {
 						result.append(getTagValue("Surface", eElement));
 					}
 					
+					result.append(" ");
+					
 					//System.out.println("######################");
 					//System.out.println("Surface  : " + getTagValue("Surface", eElement));
 					//System.out.println("Furigana  : " + getTagValue("Furigana", eElement));
