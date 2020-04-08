@@ -28,8 +28,6 @@ public class ThubanKanjiToFurigana {
 			url.append("?appid="+api_key);
 			url.append("&sentence="+kanji);
 			
-			System.out.println(url);
-			
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 			Document doc = dBuilder.parse(url.toString());
