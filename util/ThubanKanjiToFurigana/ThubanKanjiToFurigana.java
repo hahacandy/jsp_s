@@ -28,6 +28,7 @@ public class ThubanKanjiToFurigana {
 			url.append("?appid="+api_key);
 			url.append("&sentence="+kanji);
 			
+			
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 			Document doc = dBuilder.parse(url.toString());
@@ -44,7 +45,9 @@ public class ThubanKanjiToFurigana {
 					Element eElement = (Element) nNode;
 					try {
 						result.append(getTagValue("Furigana", eElement));
-					} catch (Exception e) {}
+					} catch (Exception e) {
+						result.append(getTagValue("Surface", eElement));
+					}
 					
 					//System.out.println("######################");
 					//System.out.println("Surface  : " + getTagValue("Surface", eElement));
