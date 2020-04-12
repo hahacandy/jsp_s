@@ -1,6 +1,6 @@
 //Mail-1.4.7.Jar is required
 
-import java.util.Properties;
+package util;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -9,12 +9,15 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-
+import java.util.Properties;
 
 public class ThubanMail {
 
-	public static boolean naverSend(String naverId, String naverPass, String recipientUserEmail, String subject, String contents){
+	public static boolean naverSend(String recipientUserEmail, String subject, String contents){
+		
+		String naverId = ""; //메일을 전송할 네이버 아이디
+		String naverPass = ""; //비밀번호
+		
 		String host = "smtp.naver.com";
 		String user = naverId+"@naver.com";
 		String password = naverPass;
