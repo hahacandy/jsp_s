@@ -44,11 +44,11 @@ public class ThubanAutoPageButton {
 			this.currentPage = this.allPage;
 		
 		//몇개의 포스트를 긁어올지
-		startPost = ((currentPage-1)*MAX_POST_COUNT)+1;
-		endPost = ((currentPage-1)*MAX_POST_COUNT)+MAX_POST_COUNT;
+		startPost = ((this.currentPage-1)*MAX_POST_COUNT)+1;
+		endPost = ((this.currentPage-1)*MAX_POST_COUNT)+MAX_POST_COUNT;
 		
 		//현재 페이지에 맞는 게시글 번호 측정
-		this.currentPostCnt = allPostCnt-((currentPage-1)*MAX_POST_COUNT);
+		this.currentPostCnt = allPostCnt-((this.currentPage-1)*MAX_POST_COUNT);
 	}
 	
 	
