@@ -39,9 +39,9 @@ public class ThubanAutoPageButton {
 		
 		//현재 페이지가, 존재하는 페이지가 아닌경우
 		if(currentPage <= 0)
-			currentPage = 1;
+			this.currentPage = 1;
 		else if(currentPage > this.allPage)
-			currentPage = this.allPage;
+			this.currentPage = this.allPage;
 		
 		//몇개의 포스트를 긁어올지
 		startPost = ((currentPage-1)*MAX_POST_COUNT)+1;
