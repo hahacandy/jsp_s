@@ -45,9 +45,6 @@ public class ThubanAutoPageButton {
 		this.startPage = (((this.currentPage-1)/MAX_PAGE_COUNT)*MAX_PAGE_COUNT)+1;
 		this.endPage = ((this.currentPage-1)/MAX_PAGE_COUNT) == (allPage/MAX_PAGE_COUNT) ? allPage : (startPage-1)+MAX_PAGE_COUNT;
 		
-		System.out.println("현재 페이지: " + this.currentPage);
-		System.out.println("시작 페이지: " + this.startPage);
-		System.out.println("끝 페이지: " + this.endPage);
 		
 		//몇개의 포스트를 긁어올지
 		startPost = ((this.currentPage-1)*MAX_POST_COUNT)+1;
