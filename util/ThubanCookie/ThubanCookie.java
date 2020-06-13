@@ -1,4 +1,4 @@
-package util;
+package com.jslhrd.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ThubanCookie {
 	
 	//cookieName의 쿠기값에 cookieSetValue이 없다면, 추가후 false를 리턴, 있다면 true를 리턴
-	public static boolean isCookieSet(HttpServletRequest request, HttpServletResponse response, String cookieName, String cookieSetValue) {
+	public static boolean isCookieSet(HttpServletRequest request, HttpServletResponse response, String cookieName, String cookieSetValue, int cookieSetTime) {
 		
 		Cookie[] cookies = request.getCookies();
 		String cookieValues = null;
@@ -29,7 +29,7 @@ public class ThubanCookie {
 			}else {
 				temp = new Cookie(cookieName, cookieValues+cookieSetValue);
 			}
-			temp.setMaxAge(60*60*24);
+			temp.setMaxAge(cookieSetTime);
 			response.addCookie(temp);
 			
 			return false;
@@ -39,10 +39,10 @@ public class ThubanCookie {
 	}
 	
 	//cookieName 쿠키이름, cookieSetValue 값을 넣으면 그대로 적용됨
-	public static void cookieSet(HttpServletRequest request, HttpServletResponse response, String cookieName, String cookieSetValue) {
+	public static void cookieSet(HttpServletRequest request, HttpServletResponse response, String cookieName, String cookieSetValue, int cookieSetTime) {
 
 		Cookie temp = new Cookie(cookieName, cookieSetValue);
-		temp.setMaxAge(60*60*24);
+		temp.setMaxAge(cookieSetTime);
 		response.addCookie(temp);
 
 	}
