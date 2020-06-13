@@ -32,16 +32,22 @@ public class ThubanAutoPageButton {
 		this.search = search;
 		this.key = key;
 		
-		//페이지 설정
+		//올페이지 설정
 		this.allPage = ((allPostCnt-1)/MAX_POST_COUNT)+1;
-		this.startPage = (((currentPage-1)/MAX_PAGE_COUNT)*MAX_PAGE_COUNT)+1;
-		this.endPage = ((currentPage-1)/MAX_PAGE_COUNT) == (allPage/MAX_PAGE_COUNT) ? allPage : (startPage-1)+MAX_PAGE_COUNT;
 		
 		//현재 페이지가, 존재하는 페이지가 아닌경우
 		if(currentPage <= 0)
 			this.currentPage = 1;
 		else if(currentPage > this.allPage)
 			this.currentPage = this.allPage;
+		
+		//시작, 끝 페이지 설정
+		this.startPage = (((this.currentPage-1)/MAX_PAGE_COUNT)*MAX_PAGE_COUNT)+1;
+		this.endPage = ((this.currentPage-1)/MAX_PAGE_COUNT) == (allPage/MAX_PAGE_COUNT) ? allPage : (startPage-1)+MAX_PAGE_COUNT;
+		
+		System.out.println("현재 페이지: " + this.currentPage);
+		System.out.println("시작 페이지: " + this.startPage);
+		System.out.println("끝 페이지: " + this.endPage);
 		
 		//몇개의 포스트를 긁어올지
 		startPost = ((this.currentPage-1)*MAX_POST_COUNT)+1;
