@@ -69,9 +69,9 @@ public class ThubanSimtoList {
         String temp[] = null;
         for(int i=0; i<list.size(); i++) {
         	
-        	for(int j=1; j<list.size(); j++) {
+        	for(int j=i+1; j<list.size(); j++) {
         		
-        		if(Integer.valueOf(list.get(i)[0]) < Integer.valueOf(list.get(j)[0])){
+        		if(Integer.valueOf(list.get(i)[0]) > Integer.valueOf(list.get(j)[0])){
         			temp = list.get(j);
         			list.set(j, list.get(i));
         			list.set(i, temp);
@@ -80,6 +80,7 @@ public class ThubanSimtoList {
         	}
         	
         }
+        
         
         //자막 시작시간을 이용해 끝시간을 계산
         for(int i=0; i<list.size()-1; i++) {
