@@ -55,18 +55,41 @@ public class ThubanSimtoList {
         	if(cnt > 0) {
         		sub_text = new StringBuffer(sub.substring(sub_start, sub_end).trim());
         		
-        		String[] sub_info = {sub_time.toString(),sub_text.toString(), "9999999999"};
+        		String[] sub_info = {sub_time.toString(),sub_text.toString(), null};
         		list.add(sub_info);
-        		if(cnt>1) {
-        			String[] temp = list.get(cnt-2);
-        			temp[2] = sub_time.toString();
-         			list.set(cnt-2, temp);
-        		}
         	}
         	sub_start = match.end();
         	sub_time = new StringBuffer(match.group().replaceAll("\\D", ""));
         	cnt ++;
         }
+        
+        
+        
+        //자막 시작 시간에 따라서 오름차순 정렬
+        String temp[] = null;
+        for(int i=0; i<list.size(); i++) {
+        	
+        	for(int j=1; j<list.size(); j++) {
+        		
+        		if(Integer.valueOf(list.get(i)[0]) < Integer.valueOf(list.get(j)[0])){
+        			temp = list.get(j);
+        			list.set(j, list.get(i));
+        			list.set(i, temp);
+        		}
+        		
+        	}
+        	
+        }
+        
+        //자막 시작시간을 이용해 끝시간을 계산
+        for(int i=0; i<list.size()-1; i++) {
+        	list.get(i)[2] = list.get(i+1)[0];
+        }
+        
+        //마지막  자막 끝 시간  99999999로 변경
+        list.get(list.size()-1)[2] = "999999999999";
+
+        
         
         return list;
 
