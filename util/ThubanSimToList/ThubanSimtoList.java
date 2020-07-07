@@ -81,6 +81,20 @@ public class ThubanSimtoList {
         	
         }
         
+        //같은 시간 자막이 분리되어있는 경우 합쳐버림
+        String latestTime = "";
+        for(int i=0; i<list.size(); i++) {
+        	
+        	if(latestTime.equals(list.get(i)[0])) {
+        		latestTime = list.get(i)[0];
+        		
+        		list.get(i-1)[1] += "<br>" + list.get(i)[1];
+        		list.remove(i);
+        	}else {
+        		latestTime = list.get(i)[0];
+        	}
+        }
+        
         
         //자막 시작시간을 이용해 끝시간을 계산
         for(int i=0; i<list.size()-1; i++) {
