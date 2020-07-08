@@ -86,10 +86,13 @@ public class ThubanSimtoList {
         for(int i=0; i<list.size(); i++) {
         	
         	if(latestTime.equals(list.get(i)[0])) {
+        		
         		latestTime = list.get(i)[0];
         		
         		list.get(i-1)[1] += "<br>" + list.get(i)[1];
         		list.remove(i);
+        		
+        		i--;
         	}else {
         		latestTime = list.get(i)[0];
         	}
